@@ -1,0 +1,461 @@
+ body {
+  background: linear-gradient(180deg, #e3f2fd 0%, #ffffff 1000%);
+  }
+
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ==========================================================================
+   3. Main Content & Inputs (Below the bars)
+   ========================================================================== */
+/* Mobile Responsiveness */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+/* Logo */
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 5px;
+}
+
+.navbar-logo span {
+  color: #42b883; /* Vue Green */
+}
+
+/* Links */
+.navbar-links a {
+  color: #cccccc;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #42b883;
+}
+
+/* Mobile Toggle Button */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-toggle .bar {
+  background-color: #ffffff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Breakpoint (Mobile) */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .navbar-links.is-active {
+    max-height: 300px; /* Adjust based on your content size */
+    padding: 1rem 0;
+  }
+
+  .navbar-links a {
+    margin: 1rem 0;
+  }
+}
+
+
+/* Styling for the text inputs */
+.input-row input[type="text"] {
+  flex: 1;             /* CRITICAL: Makes all 3 fields take up equal width */
+  height: 44px;
+  padding: 0 15px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 17px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+/* Focus highlighting */
+.input-row input[type="text"]:focus {
+  border-color: #98a9d4;
+}
+
+/* Responsive adjustment for small screens (Mobile devices) */
+@media (max-width: 600px) {
+  .input-row {
+    flex-direction: column; /* Stacks them vertically if the screen is too narrow */
+    gap: 8px;
+  }
+}
+
+/* 3. Basic CSS to make your overlay actually block the screen */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures it sits on top of everything */
+}
+
+.overlay-content {
+  text-align: center;
+  color: #f3f3f3;
+}
+
+/* Example CSS spinner if you aren't using Tailwind for it yet */
+.progress-circular {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pure-svg-icon {
+  color: #4CAF50;        /* Sets the checkmark color to green */
+  width: 15px;           /* Scales width explicitly */
+  height: 15px;          /* Scales height explicitly */
+  display: inline-block;
+  vertical-align: middle;/* Ensures it aligns perfectly straight next to your text string */
+  margin-right: 4px;
+}
+
+h3 {
+  color: #ed8a09ff;
+  text-align:left;
+  letter-spacing: 5px;
+  padding:  0.5px 20px;
+}
+
+
+/* 1. The Card Container */
+.input-card {
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 12px; /* Smooth corners for the card */
+  overflow: hidden; /* Keeps header corners from spilling past border-radius */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); /* Gives the card structural elevation */
+}
+
+.card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  background-color: #98a9d4; /* The muted purple-blue color from your image */
+}
+
+/* 3. Card Body Layout */
+.card-body {
+  padding: 10px 15px;
+  background-color: #f4f8fb; /* The lighter inside background from your image */
+  /* Arranges form groups side-by-side using CSS Grid */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; /* Space between the inputs */
+}
+/* Responsive wrap for smaller mobile viewports */
+@media (max-width: 768px) {
+  .card-body {
+    grid-template-columns: 1fr; /* Stacks inputs vertically on mobile */
+  }
+}
+
+
+/* 4. Form Components & Form Fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Distance between the field label and the input box */
+}
+
+
+/* Unified styling for text boxes and selection dropdowns */
+
+.form-group select {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  font-size: 15px;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px; /* Smooth rounded corners matching your image */
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Interactive focus states */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #98a9d4;
+  box-shadow: 0 0 0 3px rgba(152, 169, 212, 0.2);
+}
+
+/* Native select element custom dropdown wrapper styling */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Appends the custom dropdown indicator arrow on the select field */
+.select-wrapper::after {
+  content: '▼';
+  font-size: 10px;
+  color: #888888;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Allows clicks to go right through to the underlying dropdown menu */
+}
+
+/* Clears default OS styling wrapper for select components */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 32px; /* Extra room so text won't clip behind the down arrow */
+  cursor: pointer;
+}
+
+/* --- Root Layout Wrapper --- */
+.summary-card-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- The Main Unified Card Shape --- */
+.step-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Clean structural depth shadow */
+  border: 1px solid #e2e8f0;
+  overflow: hidden; /* Clips children to card's border radius */
+  margin-bottom: 10px;
+}
+
+/* --- Card Header Styling --- */
+.card-header {
+  background-color: #98a9d4; /* Color matched to your table banner */
+  padding: 5px 1px;
+}
+
+.card-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+
+/* Structural Desktop Labels row */
+.table-headers-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Splitting the column balance weights */
+  padding: 12px 24px;
+  background-color: rgba(14, 75, 228, 0.2);
+  border-bottom: 1px solid #98a9d4;
+}
+
+.th-label {
+  width: 100%;
+  
+ font-weight: 600;
+  color: #555c6d;
+}
+
+/* --- Individual Row Elements --- */
+.question-row-item {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Matches the layout width split above */
+  padding: 0px 2px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e7eeff;
+  align-items: center;
+  transition: background-color 0.15s ease;
+}
+
+/* Subtle line separation indicator rule */
+.question-row-item:last-child {
+  border-bottom: none;
+}
+
+.question-row-item:hover {
+  background-color: #fcfdfe; /* Interactive depth shift on cursor focus */
+}
+
+/* Left Column Context formatting */
+.question-text {
+  font-size: 15px;
+  color: #2c3e50;
+  line-height: 1.5;
+  text-align:left;
+  padding: 1px 20px; 
+  
+}
+
+/* Right Column Content Container */
+.answer-col {
+  width: 100%;
+}
+
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choice-element {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align:left;
+  
+}
+
+/* --- Check Indicator & Selection Styles --- */
+.status-indicator {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 4px;
+  /* Left unselected item visually hollow but ready */
+  border: 2px solid transparent; 
+  transition: all 0.2s ease;
+}
+
+/* Active green badge properties when selection matching evaluates to True */
+.status-indicator.selected-active {
+  background-color: #10b981; /* Sleek UI Green checkmark */
+  border-color: #10b981;
+}
+
+.choice-content-wrapper {
+  flex: 1;
+}
+
+
+.choice-text.text-bold {
+  color: #10b981;
+}
+
+/* --- Inline Optional Row Image Processing --- */
+.choice-img-box {
+  margin-top: 10px;
+  max-width: 100px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.embedded-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Hide desktop layout descriptors on phone dimensions --- */
+.mobile-only-label {
+  display: none;
+}
+
+/* --- Responsive Layout Configurations for Mobile Viewports --- */
+@media (max-width: 768px) {
+  .table-headers-row {
+    display: none; /* Drop desktop row styling map definitions */
+  }
+
+  .mobile-only-label {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  
+
+}
+
+/* The parent wrapper dictates the layout size */
+.illustration-container {
+  width: 100%;
+  max-width: 600px; /* Limits maximum size on large desktop screens */
+  margin: 0 auto;
+  padding: 25px;
+  opacity: 0.2;
+}
+
+/* The magic recipe for responsive images */
+.responsive-img {
+  width: 100%;          /* Forces image to span the width of its parent container */
+  height: auto;         /* Crucial: Maintains the original aspect ratio so it doesn't skew */
+  display: block;       /* Removes unwanted bottom whitespace/inline gaps */
+  
+  
+}
