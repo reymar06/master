@@ -28,7 +28,7 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## How to deploy this sample app locally
-1.Open command prompt window.
+1.Open command prompt window;
 2.Go to your Desktop;
 ```bash
 $ cd Desktop
