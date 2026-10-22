@@ -29,6 +29,7 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## How to deploy this sample app locally
 1.Open command prompt window;
+
 2.Go to your Desktop;
 ```bash
 $ cd Desktop
