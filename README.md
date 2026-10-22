@@ -103,7 +103,7 @@ Execute the following command inside the terminal to install necessary package l
     $ php artisan serve
     ```
     
-13.Open http://localhost.
+13.Open http://localhost:8000
 
 
 
