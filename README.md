@@ -33,7 +33,55 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 ```bash
 $ cd Desktop
 ```
-1. item Clone the source code on your desktop;
+3. Clone the source code on your desktop;
+   ```bash
+   $ https://github.com/reymar06/master.git
+   ```
+4.Go inside the project folder;
+    ```bash
+    $ cd [name of the folder]
+    ```
+5.Open the project with VS Code;
+    ```bash
+    $ code .
+    ```
+6.Open Terminal inside VS Code.
+7.Execute the following command inside the terminal to install necessary PHP dependencies;
+    ```bash
+    $ composer install
+    ```
+8.Create .env file copied from .env.example;
+    ```bash
+    $ copy .env.example .env
+    ```
+9.Edit the .env file;
+*Edit DB_DATABASE / DB_USERNAME / DB_PASSWORD
+    ```bash
+        ...
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE= <Your Database Name > 
+        DB_USERNAME=root
+        DB_PASSWORD=admin
+        ...
+    ```
+10.Execute the following command to migrate database;
+*You need to have "!! Your Database Name !!" database in your MySQL database server in advance...
+    ```bash
+        $ php artisan migrate
+    ```
+11.Open another Terminal window and then execute the following command;
+Execute the following command inside the terminal to install necessary package libraries;
+    ```bash
+        $ yarn
+        $ yarn watch
+    ```
+12.Open another Terminal window and then execute the following command;
+    ```bash
+    $ php artisan key:generate
+    $ php artisan serve
+13.Open http://localhost.
 
 
 
