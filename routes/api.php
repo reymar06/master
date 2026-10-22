@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\pdfController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/get_data', [ApiController::class, 'GetData']);
 Route::post('/get_client_name', [ApiController::class, 'getClientName']);
+
+Route::get('/generatePdf', [pdfController::class, 'generatePdf']);
+
